@@ -1,13 +1,16 @@
 package org.example
 
+
+
 val vans = ArrayList<CamperVan>()
 var currentVan = CamperVan()
 val journeys = ArrayList<Journeys> ()
 var currentJourney = Journeys()
 
+fun main() {
 
-fun mainMenu() = readNextInt(
-    """
+    fun mainMenu() = readNextInt(
+        """
         ----------------------------------
                  Camper Van Rental
         ----------------------------------
@@ -28,12 +31,11 @@ fun mainMenu() = readNextInt(
 
         0) Exit
     """.trimMargin(prefix = "|")
-)
+    )
 
 
-
-fun journeyMenu() = readNextInt(
-    """
+    fun journeyMenu() = readNextInt(
+        """
         ----------------------------------
                  Input Journeys
         ----------------------------------
@@ -52,124 +54,123 @@ fun journeyMenu() = readNextInt(
 
         0) Exit
     """.trimMargin(prefix = "|")
-)
+    )
 
 
+    fun runMenu() {
+        do {
+            when (val option = mainMenu()) {
+                1 -> addMake()
+                2 -> addModel()
+                3 -> addEngineSize()
+                4 -> addYear()
+                5 -> noOfBerths()
+                6 -> addTransmission()
+                7 -> addFuelType()
+                8 -> noOfBatteries()
+                9 -> runJourneyMenu()
+                10 -> deleteVan()
+                0 -> exitApp()
+                else -> println("Invalid choice: $option")
+            }
+        } while (true)
+    }
 
-fun runMenu() {
-    do {
-        when (val option = mainMenu()) {
-            1  -> addMake()
-            2  -> addModel()
-            3  -> addEngineSize()
-            4  -> addYear()
-            5  -> noOfBerths()
-            6  -> addTransmission()
-            7  -> addFuelType()
-            8  -> noOfBatteries()
-            9  -> runJourneyMenu()
-            10 -> deleteVan()
-            0  -> exitApp()
-            else -> println("Invalid choice: $option")
-        }
-    } while (true)
+    fun runJourneyMenu() {
+        do {
+            when (val option = journeyMenu()) {
+                1 -> startLocation()
+                2 -> endLoaction()
+                3 -> distance()
+                4 -> startDate()
+                5 -> rating()
+                6 -> daysRented()
+                7 -> costPerDay()
+                8 -> deleteVan()
+                9 -> return
+                else -> println("Invalid choice: $option ")
+            }
+        } while (true)
+    }
+
+    fun addMake() {
+        print("Enter make: ")
+        currentVan.make = readln()
+    }
+
+    fun addModel() {
+        print("Enter model: ")
+        currentVan.model = readln()
+    }
+
+    fun addEngineSize() {
+        print("Enter engine size: ")
+        currentVan.engineSize = readln()
+    }
+
+    fun addYear() {
+        print("Enter year: ")
+        currentVan.year = readln().toInt()
+    }
+
+    fun noOfBerths() {
+        print("Enter number of berths: ")
+        currentVan.berths = readln().toInt()
+    }
+
+    fun addTransmission() {
+        print("Enter transmission type: ")
+        currentVan.transmission = readln()
+    }
+
+    fun addFuelType() {
+        print("Enter fuel type: ")
+        currentVan.fuelType = readln()
+    }
+
+    fun noOfBatteries() {
+        print("Enter number of leisure batteries: ")
+        currentVan.leisureBatteries = readln().toInt()
+
+    }
+
+    fun addStartLocation() {
+        print("Enter your starting location: ")
+        currentJourney.startLocation = readln()
+
+    }
+
+    fun addEndLocation() {
+        println("Enter your end location: ")
+        currentJourney.endLocation = readln()
+    }
+
+    fun addDistance() {
+        println("Enter how far you traveled: ")
+        currentJourney.distance = readln()
+    }
+
+    fun addStartDate() {
+        println("Enter the date that you started: ")
+        currentJourney.startDate = readln().toInt()
+    }
+
+    fun addRating() {
+        println("Enter the rating you will give for the condition of the journey: ")
+        currentJourney.rating = readln().toInt()
+    }
+
+    fun addDaysRented() {
+        println("How many days did you rent the van for: ")
+        currentJourney.daysRented = readln().toInt()
+    }
+
+    fun addCostPerDay() {
+        println("How much did the van cost you per day: ")
+        currentJourney.costPerDay = readln().toInt()
+    }
 }
-
-fun runJourneyMenu() {
-    do {
-        when (val option = journeyMenu()){
-            1 -> startLocation()
-            2 -> endLoaction()
-            3 -> distance()
-            4 -> startDate()
-            5 -> rating()
-            6 -> daysRented()
-            7 -> costPerDay()
-            8 -> deleteVan()
-            9 -> return
-            else -> println("Invalid choice: $option ")
-        }
-    } while (true)
-}
-
-fun addMake() {
-    print("Enter make: ")
-    currentVan.make = readln()
-}
-
-fun addModel() {
-    print("Enter model: ")
-    currentVan.model = readln()
-}
-
-fun addEngineSize() {
-    print("Enter engine size: ")
-    currentVan.engineSize = readln()
-}
-
-fun addYear() {
-    print("Enter year: ")
-    currentVan.year = readln().toInt()
-}
-
-fun noOfBerths() {
-    print("Enter number of berths: ")
-    currentVan.berths = readln().toInt()
-}
-
-fun addTransmission() {
-    print("Enter transmission type: ")
-    currentVan.transmission = readln()
-}
-
-fun addFuelType() {
-    print("Enter fuel type: ")
-    currentVan.fuelType = readln()
-}
-
-fun noOfBatteries() {
-    print("Enter number of leisure batteries: ")
-    currentVan.leisureBatteries = readln().toInt()
-
-}
-
-fun addStartLocation() {
-    print("Enter your starting location: ")
-    currentJourney.startLocation = readln()
-
-}
-
-fun addEndLocation() {
-    println("Enter your end location: ")
-    currentJourney.endLocation = readln()
-}
-
-fun addDistance() {
-    println("Enter how far you traveled: ")
-    currentJourney.distance = readln()
-}
-
-fun addStartDate() {
-    println("Enter the date that you started: ")
-    currentJourney.startDate = readln().toInt()
-}
-
-fun addRating() {
-    println("Enter the rating you will give for the condition of the journey: ")
-    currentJourney.rating = readln().toInt()
-}
-
-fun addDaysRented() {
-    println("How many days did you rent the van for: ")
-    currentJourney.daysRented = readln().toInt()
-}
-
-fun addCostPerDay() {
-    println("How much did the van cost you per day: ")
-    currentJourney.costPerDay = readln().toInt()
-}
-
 """
-intln("----List of vans----")
+println("----List of vans----")
         print(CamperVan)
 """
