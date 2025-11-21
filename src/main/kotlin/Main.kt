@@ -54,6 +54,8 @@ fun journeyMenu() = readNextInt(
     """.trimMargin(prefix = "|")
 )
 
+
+
 fun runMenu() {
     do {
         when (val option = mainMenu()) {
@@ -166,4 +168,7 @@ fun addCostPerDay() {
     println("How much did the van cost you per day: ")
     currentJourney.costPerDay = readln().toInt()
 }
+
+println("----List of vans----")
+        print(CamperVan)
 
