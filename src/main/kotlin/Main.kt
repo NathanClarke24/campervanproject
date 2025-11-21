@@ -169,6 +169,7 @@ fun addCostPerDay() {
     currentJourney.costPerDay = readln().toInt()
 }
 
-println("----List of vans----")
+"""
+intln("----List of vans----")
         print(CamperVan)
-
+"""

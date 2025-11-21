@@ -20,3 +20,15 @@ fun queryMenu() = readNextInt(
         0) Exit
     """.trimMargin(prefix = "|")
 )
+
+fun runQueryMenu() {
+    do {
+        when ( val option = queryMenu()) {
+            1 -> mostUsedBirth()
+            2 -> popularFuel
+            3 -> popularRating
+            4 -> furthestDistance
+            5 -> popularNoOfDays
+        }
+    }
+}
