@@ -149,21 +149,21 @@ fun addDistance() {
 
 fun addStartDate() {
     println("Enter the date that you started: ")
-    currentJourney.startDate = readln()
+    currentJourney.startDate = readln().toInt()
 }
 
 fun addRating() {
     println("Enter the rating you will give for the condition of the journey: ")
-    currentJourney.rating = readln()
+    currentJourney.rating = readln().toInt()
 }
 
 fun addDaysRented() {
     println("How many days did you rent the van for: ")
-    currentJourney.daysRented = readln()
+    currentJourney.daysRented = readln().toInt()
 }
 
 fun addCostPerDay() {
     println("How much did the van cost you per day: ")
-    currentJourney.costPerDay = readln()
+    currentJourney.costPerDay = readln().toInt()
 }
 
