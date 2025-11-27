@@ -1,13 +1,13 @@
 package org.example
 
-
+fun main() {
 
 val vans = ArrayList<CamperVan>()
 var currentVan = CamperVan()
 val journeys = ArrayList<Journeys> ()
 var currentJourney = Journeys()
 
-fun main() {
+
 
     fun mainMenu() = readNextInt(
         """
@@ -170,7 +170,4 @@ fun main() {
         currentJourney.costPerDay = readln().toInt()
     }
 }
-"""
-println("----List of vans----")
-        print(CamperVan)
-"""
+

@@ -3,8 +3,9 @@ package org.example
 class queryMenu {
 }
 
-fun queryMenu() = readNextInt(
-    """
+fun main (array: Array<String>) {
+    runMenu()
+}    """
         ----------------------------------
                  Query Menu
         ----------------------------------
@@ -29,6 +30,7 @@ fun runQueryMenu() {
             3 -> popularRating
             4 -> furthestDistance
             5 -> popularNoOfDays
+            else -> ("Invalid option: $option")
         }
     }
 }
