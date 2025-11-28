@@ -1,4 +1,0 @@
-data class Note (var noteTitle: String,
-                 var notePriorit: Int,
-                 var noteCategory: String,
-                 var isNoteArchived: Boolean) {

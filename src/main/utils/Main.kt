@@ -171,3 +171,16 @@ var currentJourney = Journeys()
     }
 }
 
+fun addItemToNote() {
+    val note: Note? = askUserToChooseActiveNote()
+    if (note != null) {
+        note.addItem(
+            Item(
+                itemContents = readNextLine(prompt = "\t Item Contents: ")
+            )
+        )
+        println("Add Successful!")
+    } else {
+        println("Add NOT Successful")
+    }
+}

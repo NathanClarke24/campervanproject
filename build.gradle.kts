@@ -1,8 +1,10 @@
+
+
 plugins {
-    kotlin("jvm") version "2.2.20"
+    kotlin("jvm") version "2.0.10"
 }
 
-group = "org.example"
+group = "ie.setu"
 version = "1.0-SNAPSHOT"
 
 repositories {
@@ -11,11 +13,18 @@ repositories {
 
 dependencies {
     testImplementation(kotlin("test"))
+
+    implementation("io.github.oshai:kotlin-logging-jvm:7.0.0")
+    implementation("org.slf4j:slf4j-simple:2.0.16")
+
+    implementation("com.thoughtworks.xstream:xstream:1.4.18")
+    implementation("org.codehaus.jettison:jettison:1.4.1")
 }
 
 tasks.test {
     useJUnitPlatform()
 }
+
 kotlin {
-    jvmToolchain(24)
+    jvmToolchain(16)
 }
