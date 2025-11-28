@@ -1,4 +1,6 @@
 package org.example
+import org.example.models.CamperVan
+import org.example.models.Journeys
 
 fun main() {
 
@@ -60,17 +62,29 @@ var currentJourney = Journeys()
     fun runMenu() {
         do {
             when (val option = mainMenu()) {
-                1 -> addMake()
-                2 -> addModel()
-                3 -> addEngineSize()
-                4 -> addYear()
-                5 -> noOfBerths()
-                6 -> addTransmission()
-                7 -> addFuelType()
-                8 -> noOfBatteries()
+
+                1 -> currentVan.make = readNextLine("Enter make: ")
+                2 -> currentVan.model = readNextLine("Enter model: ")
+                3 -> currentVan.engineSize = readNextLine("Enter engine size: ")
+                4 -> currentVan.year = readNextInt("Enter year: ")
+                5 -> currentVan.berths = readNextInt("Enter berths: ")
+                6 -> currentVan.transmission = readNextLine("Enter transmission: ")
+                7 -> currentVan.fuelType = readNextLine("Enter fuel type: ")
+                8 -> currentVan.leisureBatteries = readNextInt("Enter leisure batteries: ")
+
                 9 -> runJourneyMenu()
-                10 -> deleteVan()
-                0 -> exitApp()
+
+                10 -> {
+                    vans.add(currentVan)
+                    println("Van saved!")
+                    currentVan = CamperVan()
+                }
+
+                0 -> {
+                    println("Exiting program...")
+                    return
+                }
+
                 else -> println("Invalid choice: $option")
             }
         } while (true)
@@ -79,16 +93,20 @@ var currentJourney = Journeys()
     fun runJourneyMenu() {
         do {
             when (val option = journeyMenu()) {
-                1 -> startLocation()
-                2 -> endLoaction()
-                3 -> distance()
-                4 -> startDate()
-                5 -> rating()
-                6 -> daysRented()
-                7 -> costPerDay()
-                8 -> deleteVan()
-                9 -> return
-                else -> println("Invalid choice: $option ")
+                1 -> currentJourney.startLocation = readNextLine("Enter start location: ")
+                2 -> currentJourney.endLocation = readNextLine("Enter end location: ")
+                3 -> currentJourney.distance = readNextLine("Enter distance travelled: ")
+                4 -> currentJourney.startDate = readNextInt("Enter start date: ")
+                5 -> currentJourney.rating = readNextInt("Enter rating (1–5): ")
+                6 -> currentJourney.daysRented = readNextInt("Enter days rented: ")
+                7 -> currentJourney.costPerDay = readNextInt("Enter cost per day: ")
+                8 -> {
+                    journeys.add(currentJourney)
+                    println("Journey saved!")
+                    currentJourney = Journeys()
+                }
+                0 -> return
+                else -> println("Invalid choice.")
             }
         } while (true)
     }
