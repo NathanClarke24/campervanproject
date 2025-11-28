@@ -1,3 +1,6 @@
+package org.example
+
+
 fun readNextInt(prompt: String?): Int {
     do {
         try {

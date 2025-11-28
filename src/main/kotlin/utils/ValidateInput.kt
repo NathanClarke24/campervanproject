@@ -1,3 +1,6 @@
+package org.example
+
+
 fun readValidCategory(prompt: String?): String {
     var input = readNextLine(prompt)
     do {
